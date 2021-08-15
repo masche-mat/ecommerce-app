@@ -1,9 +1,11 @@
 var formulario = document.getElementById('formIngreso');
+var user = document.getElementById('usuario');
+var contra = document.getElementById('contraseña');
 
 formulario.addEventListener('submit', function(event){
     event.preventDefault();
 
-    window.location.replace('https://masche-mat.github.io/workspace-inicial/home.html')
+    document.location.replace('https://masche-mat.github.io/workspace-inicial/home.html')
 });
 
 
