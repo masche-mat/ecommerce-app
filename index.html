@@ -39,32 +39,25 @@
 </head>
 
 <body class="text-center">
+
   <div class="container p-5">
-    <img class="mb-4" src="img/login.png" alt="login" width="600" height="250">
-    <form name="formulario" action ="" method="POST" class="signin">
-      <h1 class="h3 mb-3 font-weight-normal">Por favor Registrarse</h1>
-      <label for="inputEmail" class="sr-only">Correo electrónico</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-      <div class="checkbox mt-4">
-        <label>
-          <input type="checkbox" value="remember-me"> Recordar mi usuario
-        </label>
+    <img src="img/login.png" alt="login" width="600" height="250">
+    <form id="formIngreso" action="" method="" class="signin">
+      <h3 class="mb-3">Por favor Registrese</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" id="usuario" placeholder="Usuario" required>
       </div>
-      <label>
-        <input type="button" value="Ingresar" onclick= "enviar()">
-      </label>
+      <div class="form-group">
+        <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
+      </div>
+      <div class="mt-4">
+        <input type="checkbox" value="recordar usuario"> Recordar mi usuario
+      </div>
+      <input class="btn btn-lg btn-primary btn-block mt-4" type="submit" value="Ingresar">
     </form>
-    <!--<div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>-->
   </div>
 
-  <script src="js/init.js"></script>
+  <!--<script src="js/init.js"></script>-->
   <script src="js/login.js"></script>
 </body>
 
