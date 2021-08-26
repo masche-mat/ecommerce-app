@@ -4,7 +4,7 @@ formulario.addEventListener("submit", function (event) {
   event.preventDefault();
   var user = document.getElementById("usuario").value;
 
-  localStorage.setItem("nombre", user);
+  localStoragem.setItem("nombre", user);
 
   document.location.href = "home.html";
 });
