@@ -1,13 +1,13 @@
-var formulario = document.getElementById('formIngreso');
-var user = document.getElementById('usuario');
-var contra = document.getElementById('contraseña');
+var formulario = document.getElementById("formIngreso");
 
-formulario.addEventListener('submit', function(event){
-    event.preventDefault();
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var user = document.getElementById("usuario").value;
 
-    document.location.replace('https://masche-mat.github.io/workspace-inicial/home.html')
+  localStorage.setItem("nombre", user);
+
+  document.location.href = "home.html";
 });
-
 
 /*//Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
