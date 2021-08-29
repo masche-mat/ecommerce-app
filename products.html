@@ -38,8 +38,8 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <div>
-          <a href="my-profile.html"
-            ><small style="color: white">Ver perfil de usuario:</small></a
+          <a class="py-0 d-none d-md-inline-block" href="index.html"
+            ><small style="color: rgb(204, 204, 204)">Cerrar sesión</small></a
           >
           <br />
           <svg
@@ -56,7 +56,9 @@
             />
           </svg>
 
-          <span id="nomUser" class="ml-1" style="color: white"></span>
+          <a href="my-profile.html"
+            ><span class="my-1" id="nomUser" style="color: white"></span
+          ></a>
         </div>
       </div>
     </nav>
@@ -70,34 +72,42 @@
       <div class="container">
         <div class="row">
           <div class="col text-right">
+            <!--alineacion hacia la derecha-->
             <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-              <label class="btn btn-light active" id="sortAsc">
+              <!--crea grupo de botones, toggle:hace que parezca que el botón está presionado-->
+              <label class="btn btn-light" id="sortAsc">
                 <input
                   type="radio"
                   name="options"
                   autocomplete="off"
                   checked
-                />A-Z
-              </label>
-              <label class="btn btn-light" id="sortDesc">
-                <input type="radio" name="options" autocomplete="off" />Z-A
-              </label>
-              <label class="btn btn-light" id="sortByCount">
+                /><i class="fas fa-sort-amount-down-alt mr-1"></i>U$S </label
+              ><!--se crea etiqueta tipo boton-->
+              <label class="btn btn-light" id="sortDes">
                 <input type="radio" name="options" autocomplete="off" /><i
                   class="fas fa-sort-amount-down mr-1"
                 ></i
-                >Cant.
+                >U$S
+              </label>
+              <label class="btn btn-light" id="sortRel">
+                <input type="radio" name="options" autocomplete="off" /><i
+                  class="fas fa-sort-amount-down mr-1"
+                ></i
+                >Rel.
               </label>
             </div>
           </div>
         </div>
         <div class="row justify-content-end">
+          <!--row:crea una fila-->
           <div class="col-md-6"></div>
+          <!--como boostrap permite hasta 12 columnas x fila este div contiene 6, la mitad y el siguiente los 6 restantes-->
           <div class="col-md-6 col-sm-12 mb-1 container">
             <div class="row container p-0 m-0">
               <div class="col">
-                <p class="font-weight-normal text-right my-2">Cant.</p>
+                <p class="font-weight-normal text-right my-2">Precio</p>
               </div>
+              <!--my-2 establece margien de 2 para todos los lados-->
               <div class="col">
                 <input
                   class="form-control"
@@ -106,6 +116,7 @@
                   id="rangeFilterCountMin"
                 />
               </div>
+              <!--se crea un input para el filtro-->
               <div class="col">
                 <input
                   class="form-control"
@@ -116,12 +127,13 @@
               </div>
               <div class="col-3 p-0">
                 <div class="btn-group" role="group">
+                  <!--crea grupo de botones-->
                   <button class="btn btn-light btn-block" id="rangeFilterCount">
-                    Filtrar
-                  </button>
+                    Filtrar</button
+                  ><!--btn-block: hace que abarca todo el ancho del elemento principal-->
                   <button class="btn btn-link btn-sm" id="clearRangeFilter">
-                    Limpiar
-                  </button>
+                    Limpiar</button
+                  ><!--crea boton tipo link y con btn-sm:le da diseño pequeño-->
                 </div>
               </div>
             </div>
