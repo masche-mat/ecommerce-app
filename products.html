@@ -38,7 +38,10 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <div>
-          <a class="py-0 d-none d-md-inline-block" href="index.html"
+          <a
+            href="index.html"
+            id="closeSesion"
+            class="py-0 d-none d-md-inline-block"
             ><small style="color: rgb(204, 204, 204)">Cerrar sesión</small></a
           >
           <br />
@@ -62,6 +65,7 @@
         </div>
       </div>
     </nav>
+
     <main class="pb-5">
       <div class="text-center p-4">
         <!--crea una caja para el titulo de la pagina y centra el texto y agrega un padding de 4-->
@@ -71,6 +75,14 @@
       </div>
       <div class="container">
         <div class="row">
+          <div class="col-sm-4">
+            <input
+              type="text"
+              id="buscador"
+              placeholder="Buscar"
+              class="form-control"
+            />
+          </div>
           <div class="col text-right">
             <!--alineacion hacia la derecha-->
             <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
@@ -166,8 +178,44 @@
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- MDB -->
+
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
     <script src="js/user.js"></script>
   </body>
 </html>
+
+<!--
+  <form id="filter-questions-form" class="d-flex justify-content-center" action="/support">
+                                         Default input
+                                        <input type="search" name="qs" placeholder="Escriba su consulta" aria-label="Buscar" id="search-input" class="form-control" value="">
+                                        <button class="btn btn-primary btn-rounded btn-sm my-0 p waves-effect waves-light" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <input type="hidden" name="filter" id="status-input" value="">
+                                        <input type="hidden" name="author" id="author-input" value="">
+                                        <input type="hidden" name="sort" id="sort-input" value="">
+                                        <input type="hidden" name="user" id="user-input" value="">
+                                    </form>
+  <button class="btn btn-primary btn-rounded btn-sm my-0 p waves-effect waves-light" type="submit">
+    <i class="fas fa-search"></i>
+    </button>-->
+<!--<div class="form-outline mb-3">
+  <input type="text" id="form1" class="form-control" />
+  <label class="form-label" for="form1" style="margin-left: 0px"
+    ><font style="vertical-align: inherit"
+      ><font style="vertical-align: inherit">Etiqueta de ejemplo</font></font
+    ></label
+  >
+  <div class="form-notch">
+    <div class="form-notch-leading" style="width: 9px"></div>
+    <div class="form-notch-middle" style="width: 120.8px"></div>
+    <div class="form-notch-trailing"></div>
+  </div>
+  <div class="form-notch">
+    <div class="form-notch-leading" style="width: 9px"></div>
+    <div class="form-notch-middle" style="width: 88.8px"></div>
+    <div class="form-notch-trailing"></div>
+  </div>
+</div>-->

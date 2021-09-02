@@ -2,7 +2,16 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-  var nombre = localStorage.getItem("nombre");
 
-  document.getElementById("nomUser").innerHTML = nombre;
+  if (sessionStorage.getItem("nombre")) {
+    var nombre = sessionStorage.getItem("nombre");
+    document.getElementById("nomUser").innerHTML = nombre;
+  } else { document.location.href = "index.html"; }
+
 });
+
+//cuando cerras sesion se borra localStorage
+/*document.getElementById('closeSesion').addEventListener('click', function () {
+  localStorage.removeItem("nombre");
+  document.location.href = "index.html";
+})*/

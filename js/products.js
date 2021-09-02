@@ -16,28 +16,29 @@ function listProducts(array) {
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + info.name + ` - U$D ` + info.cost + `</h4>
+                        <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
                         <small class="text-muted">` + info.soldCount + ` Vendidos</small>
                     </div>
-                    <p>${info.description}</p>
+                    <p class="mt-2">${info.description}</p>
 
                 </div>
             </div>
         </div>
         `;
     }
-    document.getElementById("listaProductos").innerHTML = contenido;
+
+    if (contenido === "") {
+        contenido += `<div class="text-center p-4">
+        <h4>No hay productos disponibles</h4>
+        </div>
+        
+        `;
+        document.getElementById("listaProductos").innerHTML = contenido;
+    } else {
+        document.getElementById("listaProductos").innerHTML = contenido;
+    }
 }
 
-
-/*fetch(PRODUCTS_URL)
-    .then((respuesta) => respuesta.json())
-    .then((datos) => listProducts(datos));*/
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-//var categoriesArray = [];
 document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -55,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let aCount = parseInt(a.cost);
             let bCount = parseInt(b.cost);
 
-            if (aCount < bCount) { return -1; }
-            if (aCount > bCount) { return 1; }
-            return 0;
+            if (aCount < bCount) { return -1; }//a se ordena antes que b.
+            if (aCount > bCount) { return 1; }//bse ordena antes que a
+            return 0;// no cambia
         });
         listProducts(arrayAsc);
     });
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
             var arrayFilter = productArray.filter(call => call.cost >= minCount);
             listProducts(arrayFilter);
-            arrPrincipal = arrayFilter;
+            arrPrincipal = arrayFilter;//permite que se use el array para el .sort
         }
         //solo para rango max
         if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
@@ -124,5 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 });
+
+document.getElementById("buscador").addEventListener('click', function () {
+    alert('A Este elemento le falta agregar funciones');
+})
+
 //list-group-item list-group-item-action: el 1ero crea un item dentro de la lista seria como bloque, el 2do hace que al pasar el cursor cambie el background.
         //con row se crea una fila que contiene dos div uno abarca 3 columnas es pecificado en col-3 y el otro el resto de columnas con col.
+/*fetch(PRODUCTS_URL)
+    .then((respuesta) => respuesta.json())
+    .then((datos) => listProducts(datos));*/
