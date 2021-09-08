@@ -126,9 +126,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.getElementById("buscador").addEventListener('click', function () {
-    alert('A Este elemento le falta agregar funciones');
+document.getElementById("buscador").addEventListener('keyup', function () {
+    let arrFilter = arrPrincipal;
+    let texto = document.getElementById('buscador').value.toLowerCase();
+    let contenido = "";
+
+    for (let producto of arrFilter) {
+        let nombre = producto.name.toLowerCase();
+        let descProd = producto.description.toLowerCase();
+
+        if ((nombre.indexOf(texto) !== -1) || (descProd.indexOf(texto) !== -1)) {
+            let info = producto;
+            contenido +=
+                `
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
+                        <small class="text-muted">` + info.soldCount + ` Vendidos</small>
+                    </div>
+                    <p class="mt-2">${info.description}</p>
+
+                </div>
+            </div>
+        </div>
+        `;
+        }
+        if (contenido === "") {
+            contenido += `<div class="text-center p-4">
+        <h4>No hay productos disponibles</h4>
+        </div>
+        
+        `;
+            document.getElementById("listaProductos").innerHTML = contenido;
+        } else {
+            document.getElementById("listaProductos").innerHTML = contenido;
+        }
+    }
 })
+
+
+
+
 
 //list-group-item list-group-item-action: el 1ero crea un item dentro de la lista seria como bloque, el 2do hace que al pasar el cursor cambie el background.
         //con row se crea una fila que contiene dos div uno abarca 3 columnas es pecificado en col-3 y el otro el resto de columnas con col.
