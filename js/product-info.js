@@ -19,7 +19,7 @@ function showImagesGallery(array) {
     }
 }
 // funcion mostar prod, relacionados
-//a = product.relatedProducts, b = prodRel 
+//a = product.relatedProducts, b = prodRel
 function rel(a, b) {
     content = "";
 
@@ -27,7 +27,7 @@ function rel(a, b) {
         let inf = a[i];
 
         content += `
-        <img class="img-fluid img-thumbnail ml-3" id="sub" src="` + b[inf].imgSrc + `" alt="" width="200px">
+        <img class="img-fluid img-thumbnail ml-3" id="sub" src="` + b[inf].imgSrc + `" alt="prodRel.jpg" width="200px">
         
         `
         document.getElementById("relacionados").innerHTML = content;
