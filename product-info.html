@@ -1,59 +1,169 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-</head>
+  <style>
+    .checked {
+      color: orange;
+    }
+  </style>
 
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-    </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted">
+  <body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between"
+      >
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html"
+          >Categorías</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="products.html"
+          >Productos</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+
+        <div>
+          <a
+            href="index.html"
+            id="closeSesion"
+            class="py-0 d-none d-md-inline-block"
+            ><small style="color: rgb(204, 204, 204)">Cerrar sesión</small></a
+          >
+          <br />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-person"
+            viewBox="0 0 16 16"
+            color="white"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+            />
+          </svg>
+
+          <a href="my-profile.html"
+            ><span class="my-1" id="nomUser" style="color: white"></span
+          ></a>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <div class="row">
+        <div class="col mt-3 mb-2">
+          <h2 class="text-center font-weight-bold" id="nameProd"></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-2" id="imgPrincipal"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3 class="mt-3" id="categoria"></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3 class="mt-3">Precio: U$D <span id="precio"></span></h3>
+          <small class="mt-5">
+            <span id="vendidos"> </span>
+          </small>
+        </div>
+      </div>
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="container">
+      <h2 class="text-center mt-4"><u>Descripción</u></h2>
+      <div class="col" id="descrip"></div>
     </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
-</body>
+    <div class="container">
+      <h2 class="mt-5 mb-4">Comentarios:</h2>
+      <div class="row" id="comentarios"></div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="form mt-3">
+            <div class="form-group">
+              <label for="sel1">Calificar producto:</label>
+              <select class="form-control" id="selcali">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="">
+              <textarea
+                class="form-control"
+                rows="5"
+                placeholder="Agregar comentario..."
+                id="comment"
+                required
+              ></textarea>
+            </div>
 
+            <button type="submit" class="btn btn-primary mt-2">Publicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h4 class="text-center mt-4">
+        <u>Productos Relacionados</u>
+      </h4>
+      <div class="row d-flex justify-content-center" id="relacionados"></div>
+    </div>
+    <br />
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>
+          Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la
+          letra del obligatorio.
+        </p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/product-info.js"></script>
+  </body>
 </html>

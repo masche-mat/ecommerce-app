@@ -9,6 +9,7 @@ function listProducts(array) {
 
         contenido +=
             `
+        <a href="product-info.html"
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -24,6 +25,7 @@ function listProducts(array) {
                 </div>
             </div>
         </div>
+        </a>
         `;
     }
 
@@ -125,35 +127,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 });
-
+//keyup- detecta al presinar una tecla
 document.getElementById("buscador").addEventListener('keyup', function () {
     let arrFilter = arrPrincipal;
+    //toma el array que este en pantalla
     let texto = document.getElementById('buscador').value.toLowerCase();
+    //toma el valor del usuario y lo pasa a minusculas
     let contenido = "";
-
-    for (let producto of arrFilter) {
-        let nombre = producto.name.toLowerCase();
-        let descProd = producto.description.toLowerCase();
-
+    //el contenido a mostrar en pantalla
+    //ciclo for que recorre el array en pantalla
+    //y crea dos variables con datos del array
+    for (let filtro of arrFilter) {
+        let nombre = filtro.name.toLowerCase();
+        let descProd = filtro.description.toLowerCase();
+        //si la variable string nombre o descProd coincide con var texto ver funcionamiento de indexOf()..
+        //guarda el filtro coincidente en variable info y agrega al contenido igual que la funcion listProduct(array)
         if ((nombre.indexOf(texto) !== -1) || (descProd.indexOf(texto) !== -1)) {
-            let info = producto;
+            let info = filtro;
             contenido +=
                 `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
-                        <small class="text-muted">` + info.soldCount + ` Vendidos</small>
+                <a href="product-info.html"
+                <div class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
+                                <small class="text-muted">` + info.soldCount + ` Vendidos</small>
+                            </div>
+                            <p class="mt-2">${info.description}</p>
+        
+                        </div>
                     </div>
-                    <p class="mt-2">${info.description}</p>
-
                 </div>
-            </div>
-        </div>
+                </a>
         `;
         }
         if (contenido === "") {
