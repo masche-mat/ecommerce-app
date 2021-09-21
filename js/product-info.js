@@ -1,7 +1,7 @@
 var product = {};
 var comments = {};
 var prodRel = {};
-var stars = "";
+
 //funcion para mostrar imgenes
 function showImagesGallery(array) {
 
@@ -105,11 +105,25 @@ function comentarios(array) {
     document.getElementById("comentarios").innerHTML = contenido;
 
 }
+//funcion que simplifica la calificacion por estrellas
+function califico(num) {
+    let estrellas = "";
+
+    for (let i = 1; i <= 5; i++) {
+        if (i <= num) {
+            estrellas += `<span class="fa fa-star checked"></span>`
+        } else {
+            estrellas += `<span class="fa fa-star"></span>`
+        }
+    }
+    return estrellas;
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+    var form = document.getElementById('formComentar');
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             product = resultObj.data;
@@ -140,5 +154,50 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
         rel(product.relatedProducts, prodRel);
     })
-});
 
+    //funcion para nuevos comentarios
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var contenido = "";
+        var calificacion = document.getElementById("selcali").value;
+        var texto = document.getElementById("comment").value;
+        var nombre = sessionStorage.getItem("nombre")
+        var dataTime = new Date();//obtengo un objeto con la informacion 
+        var fecha = dataTime.getFullYear() + '-' + (dataTime.getMonth() + 1) + '-' + dataTime.getDate() + ' ' + dataTime.getHours() + ':' + dataTime.getMinutes() + ':' + dataTime.getSeconds();
+        var star = califico(calificacion);
+
+
+        if (texto.trim() === "") {
+            alert("Por favor, haga un comentario sobre el producto")
+        } else {
+
+            contenido = `
+        <div class="col-8 shadow p-4 mb-4 bg-white">
+            <div class="row">
+                <div class="col d-inline-flex">
+                    <i class="fas fa-user-alt"></i>
+                    <p class="ml-2" style="color: #118ab2">${nombre}</p>
+                </div>
+                <div class="col d-flex justify-content-end">
+                <span class ="small d-flex justify-content-end mt-1">${fecha}</span>      
+                </div >
+            </div >
+            <div class="row">
+                <div class="col">
+                    <span class="">${texto}</span>
+                </div>
+            </div>      
+            <div class="row"> 
+                <div class="col d-flex mt-3">
+                    <p class="mr-5">Calificación: `+ star + `  </p >       
+                </div >
+                    
+            </div>
+        </div >
+            `
+        }
+        document.getElementById("comentarios").innerHTML += contenido;
+
+        form.reset();
+    })
+});
