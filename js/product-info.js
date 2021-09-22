@@ -18,21 +18,7 @@ function showImagesGallery(array) {
         document.getElementById("imgPrincipal").innerHTML = htmlContentToAppend;
     }
 }
-// funcion mostar prod, relacionados
-//a = product.relatedProducts, b = prodRel
-function rel(a, b) {
-    content = "";
 
-    for (let i = 0; i < a.length; i++) {
-        let inf = a[i];
-
-        content += `
-        <img class="img-fluid img-thumbnail ml-3" id="sub" src="` + b[inf].imgSrc + `" alt="prodRel.jpg" width="200px">
-        
-        `
-        document.getElementById("relacionados").innerHTML = content;
-    }
-}
 
 //funcion para mostar comentarios
 function comentarios(array) {
@@ -105,6 +91,23 @@ function comentarios(array) {
     document.getElementById("comentarios").innerHTML = contenido;
 
 }
+
+// funcion mostar prod. relacionados
+//a = product.relatedProducts, b = prodRel
+function rel(a, b) {
+    content = "";
+
+    for (let i = 0; i < a.length; i++) {
+        let inf = a[i];
+
+        content += `
+        <img class="img-fluid img-thumbnail ml-3" id="sub" src="` + b[inf].imgSrc + `" alt="prodRel.jpg" width="200px">
+        
+        `
+        document.getElementById("relacionados").innerHTML = content;
+    }
+}
+
 //funcion que simplifica la calificacion por estrellas
 function califico(num) {
     let estrellas = "";
@@ -117,6 +120,25 @@ function califico(num) {
         }
     }
     return estrellas;
+}
+
+//funciones para fecha y hora formato digital
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function formatFecha(date) {
+    var anno = date.getFullYear();
+    var mes = checkTime((date.getMonth() + 1));
+    var dia = checkTime(date.getDate());
+    var hora = checkTime(date.getHours());
+    var min = checkTime(date.getMinutes());
+    var sec = checkTime(date.getSeconds());
+
+    return anno + '-' + mes + '-' + dia + ' ' + hora + ':' + min + ':' + sec;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -163,9 +185,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var texto = document.getElementById("comment").value;
         var nombre = sessionStorage.getItem("nombre")
         var dataTime = new Date();//obtengo un objeto con la informacion 
-        var fecha = dataTime.getFullYear() + '-' + (dataTime.getMonth() + 1) + '-' + dataTime.getDate() + ' ' + dataTime.getHours() + ':' + dataTime.getMinutes() + ':' + dataTime.getSeconds();
+        var fecha = formatFecha(dataTime);
         var star = califico(calificacion);
-
 
         if (texto.trim() === "") {
             alert("Por favor, haga un comentario sobre el producto")
