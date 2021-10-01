@@ -47,7 +47,9 @@
 .jumbotron .lead {
   font-size: 38px;
 }
-
+.carrusel_container {
+  margin-left: 50px;
+}
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -146,4 +148,24 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+#carru img {
+  width: 600px;
+  height: 350px;
+}
+
+#sub img {
+  transition: 450ms all;
+}
+#sub:hover img {
+  transition: 450ms all;
+  width: 350px;
+  cursor: pointer;
+}
+#sub span {
+  transition: 450ms all;
+}
+#sub:hover span {
+  margin-left: 120px;
+  transition: 450ms all;
 }

@@ -6,16 +6,28 @@ var prodRel = {};
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
-
+    let indicatorsContent = "";
+    let x = 0;
 
     for (let i = 0; i < array.length; i++) {
         var imageSrc = array[i];
 
-        htmlContentToAppend += `
-            <img class="img-fluid img-thumbnail ml-3 mt-2" id="sub" src="` + imageSrc + `" alt="" width="200px">
-        `
+        if (x == 0) {
+            htmlContentToAppend += `<div class="carousel-item active">
+                <img src="${imageSrc}" class="d-block" alt="imagen.jpg">
+            </div>`
+            indicatorsContent += `<li data-target="#carru" data-slide-to="0" class="active"></li>`
+            x++
+        } else {
+            htmlContentToAppend += `<div class="carousel-item">
+                <img src="${imageSrc}" class="d-block" alt="imagen.jpg">
+            </div>`
+            indicatorsContent += `<li data-target="#carru" data-slide-to="${x++}"></li>`
+        }
 
         document.getElementById("imgPrincipal").innerHTML = htmlContentToAppend;
+
+        document.getElementById("indicator").innerHTML = indicatorsContent;
     }
 }
 
@@ -101,8 +113,15 @@ function rel(a, b) {
         let inf = a[i];
 
         content += `
-        <img class="img-fluid img-thumbnail ml-3" id="sub" src="` + b[inf].imgSrc + `" alt="prodRel.jpg" width="200px">
-        
+        <div id="sub">
+            <div>
+                <img class="img-fluid img-thumbnail ml-3" src="` + b[inf].imgSrc + `" alt="prodRel.
+                jpg" width="250px">
+            </div>
+            <div class="ml-4">
+                <span><b>${b[inf].name}</b></span>
+            </div>
+        </div>
         `
         document.getElementById("relacionados").innerHTML = content;
     }

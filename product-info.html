@@ -23,11 +23,11 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
-  <style>
+  <!--<style>
     .checked {
       color: orange;
     }
-  </style>
+  </style>-->
 
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -92,8 +92,13 @@
           <h2 class="text-center font-weight-bold" id="nameProd"></h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col mt-2" id="imgPrincipal"></div>
+      <div class="row" style="margin-left: 23%; margin-right: 23%">
+        <div class="d-flex col mt-3 mb-2">
+          <div id="carru" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators" id="indicator"></ol>
+            <div class="carousel-inner" id="imgPrincipal"></div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col">
