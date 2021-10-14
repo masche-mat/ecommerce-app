@@ -16,7 +16,10 @@ function articles(array) {
                 jpg" width="100px">
                 <b>${info.name}</b>
                 <p style="margin">Precio: $ <span class="unitCost">${info.unitCost}</span></p>
-                <label style="margin-top: 0px">Cant. <input type="number" min="0" max="99" value="${info.count}" id="inputCant" onclick="calcularTotal()">
+                <label style="margin-top: 0px">Cant. <input type="number" min="0" max="99" value="${info.count}" id="inputCant" 
+                onkeyup="calcularTotal()"
+                 onclick="calcularTotal()"
+               >
                 </label>
                 <p>Subtotal: $ <span id="subcosto"></span></p>
             </div>
