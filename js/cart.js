@@ -35,10 +35,14 @@ function calcularTotal() {
     let cantProd = document.querySelectorAll("input");
     let subtotal = 0;
     let costoEnvio = 0;
-    let total = 0;
+
 
     for (let i = 0; i < costoProd.length; i++) {
-        subtotal += parseFloat(costoProd[i].innerHTML) * parseFloat(cantProd[i].value);
+        if (isNaN(parseFloat(cantProd[i].value))) {
+            subtotal = 0;
+        } else {
+            subtotal += parseFloat(costoProd[i].innerHTML) * parseFloat(cantProd[i].value);
+        }
     }
     document.getElementById('subcosto').innerHTML = subtotal;
     document.getElementById('productCostText').innerHTML = ` $ ${subtotal}`;
