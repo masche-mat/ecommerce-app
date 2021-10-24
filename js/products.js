@@ -9,13 +9,11 @@ function listProducts(array) {
 
         contenido +=
             `
-        <a href="product-info.html"
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
+        <div class="col-sm-6">    
+        <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+                
+                <img class="bd-placeholder-img card-img-top" src="` + info.imgSrc + `" alt="img.car" >
+                <div class="card-body">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
                         <small class="text-muted">` + info.soldCount + ` Vendidos</small>
@@ -23,9 +21,8 @@ function listProducts(array) {
                     <p class="mt-2">${info.description}</p>
 
                 </div>
-            </div>
-        </div>
         </a>
+        </div>
         `;
     }
 
@@ -186,4 +183,23 @@ document.getElementById("buscador").addEventListener('keyup', function () {
         //con row se crea una fila que contiene dos div uno abarca 3 columnas es pecificado en col-3 y el otro el resto de columnas con col.
 /*fetch(PRODUCTS_URL)
     .then((respuesta) => respuesta.json())
-    .then((datos) => listProducts(datos));*/
+    .then((datos) => listProducts(datos));
+
+
+    <a href="product-info.html"
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"><u>` + info.name + `</u><b> - U$D ` + info.cost + `</b></h4>
+                        <small class="text-muted">` + info.soldCount + ` Vendidos</small>
+                    </div>
+                    <p class="mt-2">${info.description}</p>
+
+                </div>
+            </div>
+        </div>
+        </a>*/

@@ -7,7 +7,7 @@ formulario.addEventListener("submit", function (event) {
   if (user.trim() === "") {
     alert("Nombre de usuario vacio");
   } else {
-    sessionStorage.setItem("nombre", user.trim());
+    localStorage.setItem("nombre", user.trim());
 
     document.location.href = "home.html";
   }

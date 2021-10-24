@@ -3,8 +3,8 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-  if (sessionStorage.getItem("nombre")) {
-    var nombre = sessionStorage.getItem("nombre");
+  if (localStorage.getItem("nombre")) {
+    var nombre = localStorage.getItem("nombre");
     document.getElementById("nomUser").innerHTML = nombre;
   } else { document.location.href = "index.html"; }
 
