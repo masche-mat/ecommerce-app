@@ -242,6 +242,7 @@
                   <input
                     type="radio"
                     class="form-check-input"
+                    id="transf"
                     name="optradio"
                   />Transferencia Bancaria
                 </label>
@@ -251,6 +252,7 @@
                   <input
                     type="radio"
                     class="form-check-input"
+                    id="credito"
                     name="optradio"
                   />Tarjeta de Crédito
                 </label>
@@ -259,7 +261,7 @@
               <h6>Datos para el envío</h6>
               <div class="form-group">
                 <label for="usr">Dirección:</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="direccion" />
               </div>
               <div class="form-group">
                 <label for="usr">Número de puerta:</label>
@@ -268,15 +270,16 @@
                   class="form-control"
                   min="0000"
                   max="9999"
+                  id="numPuerta"
                 />
               </div>
               <div class="form-group">
                 <label for="tel">Esquina:</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="esquina"/>
               </div>
               <div class="form-group">
                 <label for="tel">País:</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="pais" />
               </div>
               
             </form>
@@ -285,6 +288,7 @@
          <!-- Modal footer-->
           <div class="modal-footer">
             <button
+              id="buttonmodal"
               type="button"
               class="btn btn-primary"
               data-dismiss="modal"

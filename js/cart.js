@@ -76,3 +76,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 });
+
+//Validar compra
