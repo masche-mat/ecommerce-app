@@ -1,6 +1,7 @@
 const URL_CART_INFO_TWO = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
 var cart = {};
 var envio = 0.15;
+var button = document.getElementById('buttonmodal');
 
 //funcion para mostrar articulos
 function articles(array) {
@@ -78,3 +79,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 //Validar compra
+button.addEventListener('click', function(){
+    let direccion = document.getElementById('direccion').value.trim();
+    let numpuerta = document.getElementById('numPuerta').value;
+    let esq = document.getElementById('esquina').value.trim();
+    let pais = document.getElementById('pais').value.trim();
+
+   if (document.getElementById('transf').checked || document.getElementById('credito').checked && direccion !== "" || numpuerta !== undefined || esq !== "" || pais !== ""){alert("Su compra ha sido enviada")} else {
+       alert("Faltan completar algunos capos del formulario");
+   }
+})
