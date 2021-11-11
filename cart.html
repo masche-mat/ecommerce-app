@@ -235,7 +235,7 @@
 
            <!--Modal body -->
           <div class="modal-body">
-            <form action="">
+            <form action="" class="needs-validation" novalidate>
               <h6>Forma de pago</h6>
               <div class="form-check-inline">
                 <label class="form-check-label">
@@ -265,15 +265,22 @@
                 </label>
               </div>
               <hr>
-              <div class="form-group" class="collapse hide" id="transBancaria">
-                <label for="transf">Nùmero de Cuenta:</label>
-                <input type="text" class="form-control" id="numTrans">
-                <br>
-                <label for="transf">Nombre del Banco:</label>
-                <input type="text" class="form-control" id="nomTrans">
+              <div class="collapse" id="transBancaria">
+                <div class="form-group">
+                  <label for="transf">Nùmero de Cuenta:</label>
+                  <input type="text" class="form-control" id="numTrans" required>
+                  <div class="valid-feedback">Valido.</div>
+                  <div class="invalid-feedback">Falta completar este campo.</div>
+                </div> 
+                <div class="form-group">
+                  <label for="transf">Nombre del Banco:</label>
+                  <input type="text" class="form-control" id="nomTrans" required>
+                  <div class="valid-feedback">Valido.</div>
+                  <div class="invalid-feedback">Falta completar este campo.</div>
+                </div>  
               </div>
               <hr>
-              <div class="form-group" class="collapse hide" id="tajCredito">
+              <div class="form-group" class="collapse" id="tajCredito">
                 <label for="transf">Nùmero de Tarjeta:</label>
                 <input type="text" class="form-control" id="numTarjeta">
                 <br>
