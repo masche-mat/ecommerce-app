@@ -245,15 +245,12 @@
                     id="transf"
                     name="optradio"
                     data-toggle="collapse"
-                    href="controltransf"
+                    data-target="#transBancaria"
+                    role="button"
                   />Transferencia Bancaria
                 </label>
               </div>
-              <div class="collapse" id="controltransf">
-                <label for="" class="form-control">
-                  <input type="text">Número de cuenta
-                </label>
-              </div>
+              
               <div class="form-check-inline">
                 <label class="form-check-label">
                   <input
@@ -261,11 +258,30 @@
                     class="form-check-input"
                     id="credito"
                     name="optradio"
+                    data-toggle="collapse"
+                    data-target="#tajCredito"
+                    role="button"
                   />Tarjeta de Crédito
                 </label>
               </div>
-              <div>
-
+              <hr>
+              <div class="form-group" class="collapse hide" id="transBancaria">
+                <label for="transf">Nùmero de Cuenta:</label>
+                <input type="text" class="form-control" id="numTrans">
+                <br>
+                <label for="transf">Nombre del Banco:</label>
+                <input type="text" class="form-control" id="nomTrans">
+              </div>
+              <hr>
+              <div class="form-group" class="collapse hide" id="tajCredito">
+                <label for="transf">Nùmero de Tarjeta:</label>
+                <input type="text" class="form-control" id="numTarjeta">
+                <br>
+                <label for="transf">Vencimiento:</label>
+                <input type="text" class="form-control" id="vencTarjeta">
+                <br>
+                <label for="transf">Còdigo de seguridad:</label>
+                <input type="text" class="form-control" id="cvTarjeta">
               </div>
               <hr />
               <h6>Datos para el envío</h6>
