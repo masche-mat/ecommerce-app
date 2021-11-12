@@ -79,71 +79,75 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 //Validar compra
+
+var xtransf = document.getElementById('transf');
+var xcredito = document.getElementById('credito');
+var content = "";
+
+
+xtransf.addEventListener('change', function () {
+    content = `
+    <div class="form-group">
+      <label for="transf">Nùmero de Cuenta:</label>
+      <input type="text" class="form-control" id="numTrans" required>
+      <div class="valid-feedback">Valido.</div>
+      <div class="invalid-feedback">Falta completar este campo.</div>
+    </div> 
+    <div class="form-group">
+      <label for="transf">Nombre del Banco:</label>
+      <input type="text" class="form-control" id="nomTrans" required>
+      <div class="valid-feedback">Valido.</div>
+      <div class="invalid-feedback">Falta completar este campo.</div>
+    </div>  
+  `
+
+    document.getElementById('collapseTransf').innerHTML = content;
+
+})
+
+xcredito.addEventListener('change', function () {
+
+    content = `<div class="form-group">
+    <label for="transf">Nùmero de Tarjeta:</label>
+    <input type="text" class="form-control" id="numTarjeta" required>
+    <div class="valid-feedback">Valido.</div>
+    <div class="invalid-feedback">Falta completar este campo.</div>
+  </div>
+  <div class="form-group">
+    <label for="transf">Vencimiento:</label>
+    <input type="text" class="form-control" id="vencTarjeta" required>
+    <div class="valid-feedback">Valido.</div>
+    <div class="invalid-feedback">Falta completar este campo.</div>
+  </div>
+  <div class="form-group">
+    <label for="transf">Còdigo de seguridad:</label>
+    <input type="text" class="form-control" id="cvTarjeta" required>
+    <div class="valid-feedback">Valido.</div>
+    <div class="invalid-feedback">Falta completar este campo.</div>
+  </div>`
+    document.getElementById('collapseTransf').innerHTML = content;
+});
+
 (function () {
     'use strict'
-  
+
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
-  
+
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
 
 
 
 
-/*button.addEventListener('click', function(){
-    let direccion = document.getElementById('direccion').value.trim();
-    let numpuerta = document.getElementById('numPuerta').value;
-    let esq = document.getElementById('esquina').value.trim();
-    let pais = document.getElementById('pais').value.trim();
-
-   if (document.getElementById('transf').checked || document.getElementById('credito').checked && direccion !== "" || numpuerta !== undefined || esq !== "" || pais !== ""){alert("Su compra ha sido enviada")} else {
-       alert("Faltan completar algunos capos del formulario");
-   }
-})*/
-
-/*document.getElementById('botoncito').addEventListener('click', function(event){*/
-/*
-var forms = document.getElementById('formEnvio');
-forms.addEventListener('submit', function(event){
-    event.preventDefault();
-
-    var direccion = document.getElementById('direccion');
-    var numpuerta = document.getElementById('numPuerta');
-    var esq = document.getElementById('esquina');
-    var pais = document.getElementById('pais');
-    direccion.classList.remove('is-invalid');
-    direccion.classList.remove('is-valid');
-    numpuerta.classList.remove('is-invalid');
-    numpuerta.classList.remove('is-valid');
-    esq.classList.remove('is-invalid');
-    esq.classList.remove('is-valid');
-    pais.classList.remove('is-invalid');
-    pais.classList.remove('is-valid');
-
-    if (direccion.value.trim() === "" || numpuerta.value.trim() === "" || esq.value === "" || pais.value.trim() === ""){
-        direccion.classList.add('is-invalid');
-        numpuerta.classList.add('is-invalid');
-        esq.classList.add('is-invalid');
-        pais.classList.add('is-invalid');
-        
-    } else {
-        direccion.classList.add('is-valid');
-        numpuerta.classList.add('is-valid');
-        esq.classList.add('is-valid');
-        pais.classList.add('is-valid');
-        alert('Compre enviada');
-    }
-}
-)*/
