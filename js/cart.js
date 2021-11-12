@@ -79,7 +79,30 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 //Validar compra
-button.addEventListener('click', function(){
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+
+
+
+/*button.addEventListener('click', function(){
     let direccion = document.getElementById('direccion').value.trim();
     let numpuerta = document.getElementById('numPuerta').value;
     let esq = document.getElementById('esquina').value.trim();
@@ -88,4 +111,39 @@ button.addEventListener('click', function(){
    if (document.getElementById('transf').checked || document.getElementById('credito').checked && direccion !== "" || numpuerta !== undefined || esq !== "" || pais !== ""){alert("Su compra ha sido enviada")} else {
        alert("Faltan completar algunos capos del formulario");
    }
-})
+})*/
+
+/*document.getElementById('botoncito').addEventListener('click', function(event){*/
+/*
+var forms = document.getElementById('formEnvio');
+forms.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    var direccion = document.getElementById('direccion');
+    var numpuerta = document.getElementById('numPuerta');
+    var esq = document.getElementById('esquina');
+    var pais = document.getElementById('pais');
+    direccion.classList.remove('is-invalid');
+    direccion.classList.remove('is-valid');
+    numpuerta.classList.remove('is-invalid');
+    numpuerta.classList.remove('is-valid');
+    esq.classList.remove('is-invalid');
+    esq.classList.remove('is-valid');
+    pais.classList.remove('is-invalid');
+    pais.classList.remove('is-valid');
+
+    if (direccion.value.trim() === "" || numpuerta.value.trim() === "" || esq.value === "" || pais.value.trim() === ""){
+        direccion.classList.add('is-invalid');
+        numpuerta.classList.add('is-invalid');
+        esq.classList.add('is-invalid');
+        pais.classList.add('is-invalid');
+        
+    } else {
+        direccion.classList.add('is-valid');
+        numpuerta.classList.add('is-valid');
+        esq.classList.add('is-valid');
+        pais.classList.add('is-valid');
+        alert('Compre enviada');
+    }
+}
+)*/

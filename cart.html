@@ -222,7 +222,7 @@
       </div>
     </footer>
     <!--The Modal-->
-    <div class="modal fade" id="myModal">
+    <div class="modal fade" data-backdrop="static"  id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
            <!--Modal Header-->
@@ -235,7 +235,7 @@
 
            <!--Modal body -->
           <div class="modal-body">
-            <form action="" class="needs-validation" novalidate>
+            <form action="" id="formEnvio" class="needs-validation" novalidate>
               <h6>Forma de pago</h6>
               <div class="form-check-inline">
                 <label class="form-check-label">
@@ -280,21 +280,33 @@
                 </div>  
               </div>
               <hr>
-              <div class="form-group" class="collapse" id="tajCredito">
-                <label for="transf">Nùmero de Tarjeta:</label>
-                <input type="text" class="form-control" id="numTarjeta">
-                <br>
-                <label for="transf">Vencimiento:</label>
-                <input type="text" class="form-control" id="vencTarjeta">
-                <br>
-                <label for="transf">Còdigo de seguridad:</label>
-                <input type="text" class="form-control" id="cvTarjeta">
+              <div class="collapse" id="tajCredito">
+                <div class="form-group">
+                  <label for="transf">Nùmero de Tarjeta:</label>
+                  <input type="text" class="form-control" id="numTarjeta" required>
+                  <div class="valid-feedback">Valido.</div>
+                  <div class="invalid-feedback">Falta completar este campo.</div>
+                </div>
+                <div class="form-group">
+                  <label for="transf">Vencimiento:</label>
+                  <input type="text" class="form-control" id="vencTarjeta">
+                  <div class="valid-feedback">Valido.</div>
+                  <div class="invalid-feedback">Falta completar este campo.</div>
+                </div>
+                <div class="form-group">
+                  <label for="transf">Còdigo de seguridad:</label>
+                  <input type="text" class="form-control" id="cvTarjeta">
+                  <div class="valid-feedback">Valido.</div>
+                  <div class="invalid-feedback">Falta completar este campo.</div>
+                </div>  
               </div>
               <hr />
               <h6>Datos para el envío</h6>
               <div class="form-group">
                 <label for="usr">Dirección:</label>
-                <input type="text" class="form-control" id="direccion" />
+                <input type="text" class="form-control" id="direccion" required/>
+                <div class="valid-feedback">Valido.</div>
+                <div class="invalid-feedback">Falta completar este campo.</div>
               </div>
               <div class="form-group">
                 <label for="usr">Número de puerta:</label>
@@ -304,31 +316,46 @@
                   min="0000"
                   max="9999"
                   id="numPuerta"
+                  required
                 />
+                <div class="valid-feedback">Valido.</div>
+                <div class="invalid-feedback">Falta completar este campo.</div>
               </div>
               <div class="form-group">
                 <label for="tel">Esquina:</label>
-                <input type="text" class="form-control" id="esquina"/>
+                <input type="text" class="form-control" id="esquina" required/>
+                <div class="valid-feedback">Valido.</div>
+                <div class="invalid-feedback">Falta completar este campo.</div>
               </div>
               <div class="form-group">
                 <label for="tel">País:</label>
-                <input type="text" class="form-control" id="pais" />
+                <input type="text" class="form-control" id="pais" required/>
+                <div class="valid-feedback">Valido.</div>
+                <div class="invalid-feedback">Falta completar este campo.</div>
               </div>
+              <button
+              id="botoncito"
+              type="submit"
+              class="btn btn-primary"
+              data-dismiss=""
+            >
+              Enviar compra
+            </button>
               
             </form>
           </div>
 
-         <!-- Modal footer-->
+         <!-- Modal footer
           <div class="modal-footer">
             <button
-              id="buttonmodal"
-              type="button"
+              id="botoncito"
+              type="submit"
               class="btn btn-primary"
-              data-dismiss="modal"
+              data-dismiss=""
             >
               Enviar compra
             </button>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -348,6 +375,7 @@
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/user.js"></script>
+      
   </body>
 </html>
 
