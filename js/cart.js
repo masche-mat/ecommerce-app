@@ -133,17 +133,23 @@ xcredito.addEventListener('change', function () {
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
+    var checkTransf = document.getElementById('transf');
+    var checkCredito = document.getElementById('credito');
 
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
+                if (!form.checkValidity() || checkTransf.checked == false && checkCredito.checked == false) {
                     event.preventDefault()
                     event.stopPropagation()
+                    alert('Falta completar campos o no ha seleccionado una forma de pago')
                 }
 
-                form.classList.add('was-validated')
+                form.classList.add('was-validated');
+                if (form.checkValidity() && (checkTransf.checked == true || checkCredito.checked == true)) {
+                    alert('Su compra ha sido realizada con exito.')
+                }
             }, false)
         })
 })()
