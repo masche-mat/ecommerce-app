@@ -89,13 +89,13 @@ xtransf.addEventListener('change', function () {
     content = `
     <div class="form-group">
       <label for="transf">Nùmero de Cuenta:</label>
-      <input type="text" class="form-control" id="numTrans" required>
+      <input type="text" class="form-control" id="numTrans" placeholder="**** ** ** ***" required>
       <div class="valid-feedback">Valido.</div>
       <div class="invalid-feedback">Falta completar este campo.</div>
     </div> 
     <div class="form-group">
       <label for="transf">Nombre del Banco:</label>
-      <input type="text" class="form-control" id="nomTrans" required>
+      <input type="text" class="form-control" placeholder="ej.: Banco Santander" id="nomTrans" required>
       <div class="valid-feedback">Valido.</div>
       <div class="invalid-feedback">Falta completar este campo.</div>
     </div>  
@@ -109,19 +109,19 @@ xcredito.addEventListener('change', function () {
 
     content = `<div class="form-group">
     <label for="transf">Nùmero de Tarjeta:</label>
-    <input type="text" class="form-control" id="numTarjeta" required>
+    <input type="text" class="form-control" id="numTarjeta" placeholder="**** **** **** ****" required>
     <div class="valid-feedback">Valido.</div>
     <div class="invalid-feedback">Falta completar este campo.</div>
   </div>
   <div class="form-group">
     <label for="transf">Vencimiento:</label>
-    <input type="text" class="form-control" id="vencTarjeta" required>
+    <input type="text" class="form-control" id="vencTarjeta" placeholder="MM/AA" required>
     <div class="valid-feedback">Valido.</div>
     <div class="invalid-feedback">Falta completar este campo.</div>
   </div>
   <div class="form-group">
     <label for="transf">Còdigo de seguridad:</label>
-    <input type="text" class="form-control" id="cvTarjeta" required>
+    <input type="text" placeholder="CVC" class="form-control" id="cvTarjeta" required>
     <div class="valid-feedback">Valido.</div>
     <div class="invalid-feedback">Falta completar este campo.</div>
   </div>`
